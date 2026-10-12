@@ -13,6 +13,9 @@ return new class extends Migration
     {
         Schema::create('proveedors', function (Blueprint $table) {
             $table->id();
+            $table->string('razon_social', 180);
+            $table->string('ruc', 11)->unique();
+            $table->string('telefono', 20)->nullable();
             $table->timestamps();
         });
     }

@@ -13,13 +13,11 @@ return new class extends Migration
     {
         Schema::create('productos', function (Blueprint $table) {
             $table->id();
-            // Personalizado: Añadimos un SKU único para diferenciarnos
+            // Código único del producto para control de inventario
             $table->string('codigo_sku', 50)->unique()->nullable(); 
             $table->string('nombre', 120);
-            // Hecho 'nullable' para que no dé error 500 si el cliente no envía la descripción
             $table->text('descripcion')->nullable(); 
             $table->decimal('precio', 10, 2);
-            // Personalizado: Agregamos stock para enriquecer el CRUD
             $table->integer('stock')->default(0); 
             $table->timestamps();
         });

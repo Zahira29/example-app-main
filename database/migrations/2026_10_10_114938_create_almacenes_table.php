@@ -13,8 +13,8 @@ return new class extends Migration
     {
         Schema::create('almacenes', function (Blueprint $table) {
             $table->id();
-            $table->string('nombre_almacen');
-            $table->string('tamaño')->nullable();
+            $table->string('nombre_almacen', 150);
+            $table->string('tamaño', 100)->nullable();
             $table->boolean('estado')->default(true);
             $table->timestamps();
         });
